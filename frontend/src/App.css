@@ -1,0 +1,78 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body{
+  background-color: #0f1111;
+}
+.container{
+  max-width: 1230px;
+  margin: 0px auto;
+}
+button{
+  border-radius: 5px;
+}
+button,input,select:hover{
+  cursor: pointer;
+}
+
+/* header */
+header{
+background-color: #121242;
+padding: 15px 0px;
+}
+header .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brandName{
+  color: #FFF;
+}
+.search{
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+}
+.signupBtn{
+  border-radius: 15px;
+  padding: 10px 25px;
+  border: none;
+  font-weight: 600;
+}
+.headerMenu{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.cart{
+  width: 40px;
+  height: 40px;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  position: relative;
+}
+.cart:hover{
+  cursor: pointer;
+}
+.cart i{
+  font-size: 20px;
+}
+.cartCount{
+  width: 19px;
+  height: 19px;
+  background-color: #FFF;
+  color: #121242;
+  border-radius: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  top: -8px;
+  right: 3px;
+}
