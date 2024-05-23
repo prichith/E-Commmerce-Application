@@ -10,7 +10,7 @@ const productsSchema = new mongoose.Schema({
     },
   ],
   description: { type: String, required: true },
-  categoryID: { type: String, required: true },
+  categoryID: { type: Schema.Types.ObjectId, required: true },
 });
 
 const Products = mongoose.model("products", productsSchema);

@@ -2,13 +2,16 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: 'DM Sans', sans-serif;
 }
 body{
-  background-color: #0f1111;
+  /* background-color: #0f1111; */
+  background-color: #ccd9e9;
 }
 .container{
   max-width: 1230px;
   margin: 0px auto;
+  padding: 5px 10px;
 }
 button{
   border-radius: 5px;
@@ -16,10 +19,13 @@ button{
 button,input,select:hover{
   cursor: pointer;
 }
-
+:root{
+  --primary-color: #121242;
+  --secondary-color: #232f3e;
+}
 /* header */
 header{
-background-color: #121242;
+background-color: var(--primary-color);
 padding: 15px 0px;
 }
 header .container{
@@ -34,6 +40,7 @@ header .container{
   border-radius: 10px;
   padding: 10px 20px;
   border: none;
+  color: var(--primary-color);
 }
 .signupBtn{
   border-radius: 15px;
@@ -63,16 +70,65 @@ header .container{
   font-size: 20px;
 }
 .cartCount{
-  width: 19px;
-  height: 19px;
-  background-color: #FFF;
-  color: #121242;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: #FFF;
   border-radius: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  top: -8px;
-  right: 3px;
+  top: -9px;
+  right: 6px;
+  font-size: 15px;
+  /* border: 1px solid #FFF; */
+  border-top: 1px solid yellow;
+  border-right: 1px solid yellow;
 }
+.avatar{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.avatar img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.avatar img:hover{
+  cursor: pointer;
+}
+/* end header */
+/* categories */
+.category{
+  background-color: #00ffed;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.category img{
+  width: 100%;
+  height: 100%;
+}
+.category:hover{
+  cursor: pointer;
+}
+/* .categoriesMenu{
+  background-color: var(--secondary-color);
+} */
+/* .categoriesMenu .container{ */
+.categoryGroup{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+  /* background-color: #bbcadd; */
+}
+/*end categories */
