@@ -1,0 +1,29 @@
+.category{
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+  }
+  .category img{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+  }
+  .category img:hover{
+    background-color: grey;
+    border-radius: 50%;
+  }
+  .category:hover{
+    cursor: pointer;
+  }
+  .categoryGroup{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+    background-color: #FFF;
+    border-radius: 5px;
+  }

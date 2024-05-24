@@ -13,6 +13,10 @@ body{
   margin: 0px auto;
   padding: 5px 10px;
 }
+a{
+  text-decoration: none;
+  color: inherit;
+}
 button{
   border-radius: 5px;
 }
@@ -22,6 +26,9 @@ button,input,select:hover{
 :root{
   --primary-color: #121242;
   --secondary-color: #232f3e;
+}
+.heading{
+  padding: 10px 0px;
 }
 /* header */
 header{
@@ -83,7 +90,6 @@ header .container{
   top: -9px;
   right: 6px;
   font-size: 15px;
-  /* border: 1px solid #FFF; */
   border-top: 1px solid yellow;
   border-right: 1px solid yellow;
 }
@@ -103,8 +109,7 @@ header .container{
 }
 /* end header */
 /* categories */
-.category{
-  background-color: #00ffed;
+/* .category{
   min-width: 90px;
   display: flex;
   flex-direction: column;
@@ -121,14 +126,11 @@ header .container{
 .category:hover{
   cursor: pointer;
 }
-/* .categoriesMenu{
-  background-color: var(--secondary-color);
-} */
-/* .categoriesMenu .container{ */
 .categoryGroup{
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(100px, auto));
-  /* background-color: #bbcadd; */
-}
+  background-color: #FFF;
+  border-radius: 5px;
+} */
 /*end categories */

@@ -1,0 +1,32 @@
+.popularPosts{
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(180px, auto));
+  }
+  .popularPost{
+    background-color: #FFF;
+    display: grid;
+    grid-template-rows: 4fr 2fr;
+    border-radius: 6px;
+    border: 1px solid grey;
+    align-items: self-end;
+    padding: 10px;
+  }
+  .popularPost img{
+    width: 100%;
+    height: 100%;
+  }
+  .popularPostContent{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .popularPostContent p:last-child{
+    color: black;
+    font-weight: 600;
+  }
+  .popularPostSection{
+    background-color: #FFF;
+    padding-bottom: 15px;
+  }

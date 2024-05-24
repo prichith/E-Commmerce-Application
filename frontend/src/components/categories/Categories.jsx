@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './categories.css';
 
 export default function Categories() {
   return (
     <div className="categoriesMenu">
     <div className="container">
-      <h2>Categories</h2>
+      <h2 className='heading'>Categories</h2>
       <div className="categoryGroup">
         <div className="category">
           <img src={"https://rukminim1.flixcart.com/flap/64/64/image/22fddf3c7da4c4f4.png?q=100"} alt="mobile"/>

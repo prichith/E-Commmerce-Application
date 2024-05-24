@@ -6,7 +6,7 @@ const OrderItemSchema = new mongoose.Schema({ // works when checkout the order
   quantity: { type: Number, required: true, min: 1 },
   price: { type: Number, required: true },
   total: { type: Number, required: true },
-  shippingAddress: { type: String, required: true },
+  deliveryAddress: { type: String, required: true },
   deliveryStatus: {
     type: String,
     enum: ["pending", "shipped", "delivered", "cancelled"],

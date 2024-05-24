@@ -1,10 +1,11 @@
 import React from "react";
-// improve img from '../../../public/bannerImage/banner1.jpg'
+import './slider.css';
+
 // const colors = ["#0088FE", "#00C49F", "#FFBB28"];
 const colors = [
-  "https://m.media-amazon.com/images/I/916VpzBGLaL._SX3000_.jpg",
+  "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/b2fa49c3e888ba33.jpg?q=20",
   "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/1f25201ced5d720d.jpg?q=20",
-  "#FFBB28",
+  "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/f21c8c88a0bb63e0.png?q=20",
 ];
 const delay = 2500;
 
