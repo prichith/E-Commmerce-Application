@@ -14,7 +14,7 @@
     padding: 5px;
   }
   .category img:hover{
-    background-color: grey;
+    background-color: var(--ternary-color);
     border-radius: 50%;
   }
   .category:hover{

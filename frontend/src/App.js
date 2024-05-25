@@ -1,20 +1,14 @@
 import './App.css';
-// import './components/slider/slider.css';
-import Header from './components/Header';
-import Categories from './components/categories/Categories';
-import SlideShow from './components/slider/SlideShow';
-import Footer from './components/footer/Footer';
-import PopularPosts from './components/popularPosts/PopularPosts';
+import { Routes ,Route } from 'react-router-dom';
+import Home from './Home';
+import Products from './Products';
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <Categories />
-      <SlideShow />
-      <PopularPosts />
-      <Footer />
-    </>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/products' element={<Products />} />
+    </Routes>
   );
 }
 

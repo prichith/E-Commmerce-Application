@@ -6,11 +6,15 @@
   .popularPost{
     background-color: #FFF;
     display: grid;
-    grid-template-rows: 4fr 2fr;
+    grid-template-rows: 5fr 3fr;
     border-radius: 6px;
     border: 1px solid grey;
     align-items: self-end;
     padding: 10px;
+    margin-bottom: 20px;
+  }
+  .popularPost:hover{
+    cursor: pointer;
   }
   .popularPost img{
     width: 100%;
@@ -21,12 +25,24 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    align-items: center;
   }
-  .popularPostContent p:last-child{
+  .popularPostContent p:nth-child(2){
     color: black;
     font-weight: 600;
   }
   .popularPostSection{
     background-color: #FFF;
     padding-bottom: 15px;
+  }
+  .addToCartBtn{
+    border: 1px solid orange;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: orange;
+    max-width: 150px;
+    font-weight: 500;
+  }
+  .addToCartBtn:hover{
+    font-weight: 600;
   }

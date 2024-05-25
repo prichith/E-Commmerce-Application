@@ -1,0 +1,79 @@
+header {
+  background-color: var(--primary-color);
+  padding: 15px 0px;
+}
+.heading {
+  padding: 10px 0px;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brandName {
+  color: #fff;
+}
+.search {
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  color: var(--primary-color);
+}
+.signupBtn {
+  border-radius: 15px;
+  padding: 10px 25px;
+  border: none;
+  font-weight: 600;
+}
+.headerMenu {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.cart {
+  width: 40px;
+  height: 40px;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  position: relative;
+}
+.cart:hover {
+  cursor: pointer;
+}
+.cart i {
+  font-size: 20px;
+}
+.cartCount {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: #fff;
+  border-radius: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  top: -9px;
+  right: 6px;
+  font-size: 15px;
+  border-top: 1px solid yellow;
+  border-right: 1px solid yellow;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+.avatar img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.avatar img:hover {
+  cursor: pointer;
+}
