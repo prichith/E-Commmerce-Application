@@ -1,0 +1,128 @@
+/* Cart Page */
+    /* cart list */
+    .cartDiv {
+        display: grid;
+        grid-template-columns: 6fr 3fr;
+        gap: 40px;
+    }
+    .cartList ul li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        box-shadow: 0px 13px 15px 0px rgba(0, 0, 0, 0.07);
+        background-color: #fff;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+    .cartListImg {
+        width: 70px;
+        height: 90px;
+        display: flex;
+        flex-direction: column;
+    }
+    .cartListImg img {
+        width: 100%;
+        height: 100%;
+    }
+    .cartListDetails {
+        text-align: center;
+    }
+    .cartListDetails p:first-child {
+        font-weight: 500;
+    }
+    .increment {
+        background-color: var(--ternary-color);
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-weight: 500;
+        padding-bottom: 2px;
+    }
+    .increment,
+    .cartDelete:hover {
+        cursor: pointer;
+    }
+    .increment:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
+    .productQuantity {
+        display: flex;
+        gap: 10px;
+    }
+    .quantity {
+        font-weight: 500;
+    }
+    .actionAndPrice {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 55px;
+        gap: 20px;
+        align-items: end;
+    }
+    .actionAndPrice p {
+        font-weight: 500;
+    }
+    .actionAndPrice i {
+        color: red;
+    }
+    .cartDelete {
+        background-color: var(--ternary-color);
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+    }
+    .cartDelete:hover {
+        background-color: var(--primary-color);
+    }
+    /* end cartlist */
+    /* cart summary */
+    .cartSummary {
+        background-color: #fff;
+        box-shadow: 0px 13px 15px 9px rgba(0, 0, 0, 0.07);
+        padding: 10px 15px;
+        border-radius: 5px;
+        max-height: 225px;
+    }
+    .cartSummary ul li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .cartSummary button {
+        width: 50%;
+        height: 30px;
+    }
+    .cartPurchase {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .cartPurchase button {
+        background-color: green;
+        color: #fff;
+        font-weight: 800;
+        height: 35px;
+        border: none;
+        margin-top: 40px;
+    }
+    .cartSummary h3 {
+        padding-bottom: 20px;
+    }
+    .totalPrice {
+        color: green;
+        font-weight: 600;
+    }
+    .totalQuantity {
+        font-weight: 500;
+    }
+    /* end cart summary */
+  /* End Cart Page */
+  
