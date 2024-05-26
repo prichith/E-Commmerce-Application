@@ -169,25 +169,23 @@ header .container {
 .cartDiv{
   display: grid;
   grid-template-columns: 6fr 3fr;
-  background-color: yellow;
   gap: 40px;
-}
-.cartList{
-  background-color: grey;
-}
-.cartSummary{
-  background-color: pink;
 }
 .cartList ul li{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: orange;
   padding: 10px 15px;
+  box-shadow: 0px 13px 15px 0px rgba(0, 0, 0, 0.07);
+  background-color: #FFF;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 .cartListImg{
   width: 70px;
-  height: 70px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
 }
 .cartListImg img{
   width: 100%;
@@ -200,7 +198,7 @@ header .container {
   font-weight: 500;
 }
 .increment{
-  background-color: green;
+  background-color: var(--ternary-color);  
   width: 20px;
   height: 20px;
   border-radius: 5px;
@@ -212,6 +210,10 @@ header .container {
 }
 .increment,.cartDelete:hover{
   cursor: pointer;
+}
+.increment:hover{
+  background-color: var(--primary-color);
+  color: #FFF;
 }
 .productQuantity{
   display: flex;
@@ -235,7 +237,7 @@ header .container {
 color: red;
 }
 .cartDelete{
-  background-color: grey;
+  background-color: var(--ternary-color);
   width: 35px;
   height: 35px;
   display: flex;
@@ -243,10 +245,19 @@ color: red;
   align-items: center;
   border-radius: 5px;
 }
+.cartDelete:hover{
+  background-color: var(--primary-color);
+}
   /* end cartlist */
+
+
   /* cart summary */
   .cartSummary{
+    background-color: #FFF;
+    box-shadow: 0px 13px 15px 9px rgba(0, 0, 0, 0.07);
     padding: 10px 15px;
+    border-radius: 5px;
+    max-height: 225px;
   }
 .cartSummary ul li{
   display: flex;
