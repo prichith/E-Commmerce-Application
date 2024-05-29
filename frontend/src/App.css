@@ -33,7 +33,10 @@ select,
 i:hover {
   cursor: pointer;
 }
-
+form input,form select{
+  color: var(--primary-color);
+  font-weight: 600;
+}
 /* header */
 header {
   background-color: var(--primary-color);
@@ -114,5 +117,90 @@ header .container {
 .avatar img:hover {
   cursor: pointer;
 }
-
+#images{
+  color: #FFF;
+}
 /* end header */
+
+/* Form */
+/* form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid white;
+  padding: 25px 20px 40px 20px;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  max-width: 600px;
+  width: 100%;
+  left: 322px;
+  z-index: 2;
+  display: none;
+  top: 85px;
+  position: fixed;
+}
+form input{
+  border-radius: 5px;
+  border: none;
+  padding: 8px 30px;
+}
+.flex{
+  display: flex !important;
+}
+form button{
+  border-radius: 5px;
+  border: none;
+  padding: 8px 30px;
+  color: #0a166f;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+  width: 30%;
+  margin: 0 auto;
+}
+form button:hover{
+  color: #1124b6;
+}
+.formContainer{
+  max-width: 500px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+.avatar{
+  display: flex;
+  justify-content: center;
+}
+form img{
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 3px solid #FFF;
+}
+form span{
+  background-color: #ece0e0;
+  padding: 10px;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 20px;
+}
+form span:hover{
+  cursor: pointer;
+  background-color: rgb(174, 168, 168);
+}
+.formClose{
+  display: flex;
+  justify-content: flex-end;
+}
+.productImg{
+  color: #FFF;
+} */
+
+/* end Form */
+

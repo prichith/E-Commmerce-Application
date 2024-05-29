@@ -1,0 +1,83 @@
+.productForm{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid white;
+    padding: 25px 20px 40px 20px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    max-width: 600px;
+    width: 100%;
+    left: 322px;
+    display: none;
+    top: 85px;
+    position: absolute;
+    z-index: 2;
+    overflow-y: scroll;
+    max-height: 500px;
+  }
+  .productForm::-webkit-scrollbar {
+    display: none;
+}
+  .productForm input,.productForm select{
+    border-radius: 5px;
+    border: none;
+    padding: 8px 30px;
+  }
+  .flex{
+    display: flex !important;
+  }
+  .productForm button{
+    border-radius: 5px;
+    border: none;
+    padding: 8px 30px;
+    color: #0a166f;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    width: 30%;
+    margin: 0 auto;
+  }
+  .productForm button:hover{
+    color: #1124b6;
+  }
+  .formContainer{
+    max-width: 500px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+  .avatar{
+    display: flex;
+    justify-content: center;
+  }
+  .productForm img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: 3px solid #FFF;
+  }
+  .productForm span{
+    background-color: #ece0e0;
+    padding: 10px;
+    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 20px;
+  }
+  .productForm span:hover{
+    cursor: pointer;
+    background-color: rgb(174, 168, 168);
+  }
+  .formClose{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .productImg{
+    color: #FFF;
+  }
