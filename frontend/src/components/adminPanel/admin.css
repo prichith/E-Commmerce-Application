@@ -1,0 +1,52 @@
+.adminPage {
+    display: grid;
+    grid-template-columns: 2fr 7fr;
+    gap: 10px;
+    margin-top: 15px;
+    min-height: 300px;
+  }
+  .adminCategories {
+    background-color: #161643;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+  }
+  .adminCategories label {
+    margin-left: 10px;
+  }
+  .productDashboard {
+    background-color: #fff;
+  }
+  .heading {
+    margin-bottom: 15px;
+  }
+  /* table */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  /* end table */
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+  .actions i:first-child {
+    color: green;
+  }
+  .actions i:last-child {
+    color: red;
+  }
+  .actions i {
+    padding: 8px;
+    border-radius: 5px;
+  }
+  .actions i:hover {
+    background-color: var(--ternary-color);
+  }

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './popularPost.css';
 
 export default function PopularPost() {
   return (
