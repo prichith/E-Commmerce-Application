@@ -1,7 +1,18 @@
 import React from 'react';
 import './admin.css';
+import { useSelector, useDispatch } from "react-redux";
+import { setFormOpen } from "../../redux/adminPage";
+import { useEffect, useState } from "react";
 
 export default function AdminPage() {
+  const { formOpen } = useSelector((state) => state.admin);
+  const dispatch = useDispatch();
+  console.log(formOpen);
+
+  function openForm(){ //open form
+    dispatch(setFormOpen(true));
+  }
+
   return (
     <div className="adminPage container">
       <div className="adminCategories">
@@ -16,6 +27,9 @@ export default function AdminPage() {
       </div>
 
       <div className="productDashboard">
+        <div className="addProductBtn">
+          <button onClick={openForm}>Add Product</button>
+        </div>
         <table>
           <thead>
             <tr>

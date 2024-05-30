@@ -19,7 +19,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
 // load route
-app.use("/", require("./src/router/products/products"));
+app.use("/", require("./src/router/products"));
 
 app.listen(PORT, () =>
   console.log(`server is running on http://localhost:${PORT}`)

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const PaymentSchema = new mongoose.Schema( //works when buy the product
   {
     orderID: { type: Schema.Types.ObjectId, ref: "Orders", required: true },
-    customerID: { type: Schema.Types.ObjectId, ref: "Users", required: true },
+    customerID: { type: mongoose.Schema.Types.ObjectId, ref: "Users", required: true },
     amount: { type: Number, required: true },
     paymentMethod: {
       type: String,

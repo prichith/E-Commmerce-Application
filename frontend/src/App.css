@@ -120,7 +120,13 @@ header .container {
 #images{
   color: #FFF;
 }
+
+.flex{ 
+  display: flex !important;
+}
 /* end header */
+
+
 
 /* Form */
 /* form{
