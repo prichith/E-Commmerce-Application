@@ -1,18 +1,33 @@
 const Products = require('../model/product');
 
 exports.add = async (query) => {
-  console.log(query,'==query');
     try {
-      const list = new Products(query);
-      list.save();
+      const newProduct = new Products(query);
+      newProduct.save();
   
-      return list;
+      return newProduct;
     } catch (error) {
       console.error(error);
     }
   };
 
-exports.addImages = async (id,avatar)=>{
-  let result = await Products.findByIdAndUpdate(id,{ $set: avatar },{ new: true });
+exports.getAll = async () => {
+    try {
+      const result = await Products.find();
+
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+exports.addImages = async (id, avatarData) => {
+  let result = await Products.findByIdAndUpdate(
+    id,
+    { $push: { images: { $each: avatarData.avatars } } },
+    { new: true }
+  );
+
   return result;
-}
+};
+

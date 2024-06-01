@@ -1,53 +1,62 @@
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./productForm.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
 import { useState } from "react";
+import { addProduct } from "../../redux/products";
 
-
-export default function ProductForm() {
-  const [data, setData] = useState({}); //form data
-  const [images, setImages] = useState([]); //
+export default function ProductForm(props) {
+  // const [data, setData] = useState({}); //form data
+  const [images, setImages] = useState([]); 
   const { formOpen } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
+  let data = props.data;
+  let updateData = props.updateData;
 
-  function closeForm(){
+  function closeForm() {
     dispatch(setFormOpen(false));
   }
 
-  async function updateImages(event){
+  async function updateImages(event) {
     await setImages(event.target.files);
   }
 
-  function updateFormData(event){
+  function updateFormData(event) {
     const { name, value } = event.target;
-    setData((prevState) => ({
+    updateData((prevState) => ({
+    // setData((prevState) => ({
       ...prevState,
       [name]: value,
-    }));      
+    }));
 
     console.log(data);
   }
 
-  async function handleSubmit(event){
-    console.log(data,'==data');
+  async function handleSubmit(event) {
     event.preventDefault();
+    console.log(data, "==data");
 
-    try {
-      const response = await axios.post('http://localhost:3002/admin/product', data);
-      let id = response.data._id;
-      const uploadImage = await axios.post(`http://localhost:3002/admin/product/${id}/avatar`, images);
-    } catch (error) {
-      console.error('There was an error submitting the product:', error);
+    const formData = new FormData();
+    for (let i = 0; i < images.length; i++) {
+      formData.append("images", images[i]); 
     }
 
+    try {
+      let result = dispatch(addProduct({ data, formData })); // post a product with data and images
+    } catch (error) {
+      console.error("There was an error submitting the product:", error);
+    }
     closeForm();
   }
 
   return (
     <div className="formContainer">
-      <form className={`${formOpen ? "flex productForm" : "productForm"}`} encType="multipart/form-data" onSubmit={handleSubmit}>
+      <form
+        className={`${formOpen ? "flex productForm" : "productForm"}`}
+        encType="multipart/form-data"
+        onSubmit={handleSubmit}
+      >
         <div className="formClose">
           <span>
             <i onClick={closeForm} className="fa-solid fa-xmark"></i>
@@ -83,7 +92,12 @@ export default function ProductForm() {
           value={data.brand}
           required
         />
-        <select name="category" id="productCategory" placeholder="Category" onChange={updateFormData}>
+        <select
+          name="category"
+          id="productCategory"
+          placeholder="Category"
+          onChange={updateFormData}
+        >
           <option value="">Choose Category</option>
           <option value="mobile">Mobile</option>
           <option value="laptop">Laptop</option>
@@ -134,7 +148,9 @@ export default function ProductForm() {
           required
         />
 
-        <button id="addContact" onClick={handleSubmit}>Add Product</button>
+        <button id="addContact" onClick={handleSubmit}>
+          Add Product
+        </button>
       </form>
     </div>
   );

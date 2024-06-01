@@ -1,16 +1,29 @@
-import React from 'react';
-import './admin.css';
+import React from "react";
+import "./admin.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
 import { useEffect, useState } from "react";
+import { fetchProducts } from "../../redux/products";
 
-export default function AdminPage() {
+export default function AdminPage(props) {
   const { formOpen } = useSelector((state) => state.admin);
+  const { allProducts } = useSelector((state) => state.products);
+  // const [data, setData] = useState();
   const dispatch = useDispatch();
 
-  function openForm(){ //open form
+  function openForm() {
+    props.updateData();
     dispatch(setFormOpen(true));
   }
+
+  function editFormOpen(data){
+    props.updateData(data);
+    dispatch(setFormOpen(true));
+  }
+  
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
   return (
     <div className="adminPage container">
@@ -18,10 +31,12 @@ export default function AdminPage() {
         <form action="">
           <h3 className="heading">Categories</h3>
           <input type="radio" id="mobile" name="category" value="mobile" />
-          <label htmlFor="mobile">Mobile</label><br />
+          <label htmlFor="mobile">Mobile</label>
+          <br />
           <input type="radio" id="laptop" name="category" value="laptop" />
-          <label htmlFor="laptop">Laptop</label><br />
-          <br />  
+          <label htmlFor="laptop">Laptop</label>
+          <br />
+          <br />
         </form>
       </div>
 
@@ -41,30 +56,19 @@ export default function AdminPage() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Redmi 10</td>
-              <td>Xiomi</td>
-              <td>55</td>
-              <td>$14,000</td>
-              <td className="actions">
-                <i className="fa-solid fa-pen-to-square"></i>
-                <i className="fa-solid fa-trash"></i>
-              </td>
-            </tr>
-            
-            <tr>
-              <td>2</td>
-              <td>Redmi 10 Pro</td>
-              <td>Xiomi</td>
-              <td>33</td>
-              <td>$18,000</td>
-              <td className="actions">
-                <i className="fa-solid fa-pen-to-square"></i>
-                <i className="fa-solid fa-trash"></i>
-              </td>
-            </tr>
-
+            {allProducts.map((product, index) => (
+              <tr key={product._id}>
+                <td>{index + 1}</td>
+                <td>{product.name}</td>
+                <td>{product.brand}</td>
+                <td>{product.quantity}</td>
+                <td>₹ {product.price}</td>
+                <td className="actions">
+                  <i className="fa-solid fa-pen-to-square" onClick= { ()=> editFormOpen(product) }></i>
+                  <i className="fa-solid fa-trash"></i>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

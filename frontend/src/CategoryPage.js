@@ -4,7 +4,7 @@ import PopularPosts from './components/popularPosts/PopularPosts';
 import Footer from './components/footer/Footer';
 import Categories from './components/categories/Categories';
 
-export default function Products(){
+export default function CategoryPage(){
   return (
     <>
     <Header />

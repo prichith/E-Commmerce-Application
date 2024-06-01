@@ -15,7 +15,8 @@ const upload = multer({storage : storage})
 //END save avatar into a folder
 
 route.post('/admin/product',productsController.add);
-route.post('/admin/product/:id/avatar',upload.single('images') ,productsController.addImages);
+route.post('/admin/product/:id/avatar', upload.array('images', 10),productsController.addImages);
+route.get('/admin/product',productsController.getAll);
 
 
 module.exports = route;

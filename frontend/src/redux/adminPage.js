@@ -7,7 +7,7 @@ const initialState = {
 
 };
 
-const contactListSlice = createSlice({
+const adminPageSlice = createSlice({
   name: "admin",
   initialState,
   reducers: {
@@ -21,9 +21,7 @@ const contactListSlice = createSlice({
   },
 //   extraReducers: (builder) => {
 //     builder
-    //   .addCase(fetchContacts.pending, (state) => {
-    //     console.log("loading");
-    //   })
+
     //   .addCase(fetchContacts.fulfilled, (state, action) => {
     //     state.contactList = action.payload.data ? action.payload.data : "";
     //     state.totalContact = action.payload.totalEmployee;
@@ -58,11 +56,11 @@ const contactListSlice = createSlice({
 // );
 
 
-export default contactListSlice.reducer;
+export default adminPageSlice.reducer;
 export const {
   setFormOpen,
 //   setFormUpdate,
 //   setContactLimit,
 //   setSearchText,
 //   setContactsPerPage,
-} = contactListSlice.actions;
+} = adminPageSlice.actions;

@@ -22,7 +22,7 @@ app.use(bodyparser.json());
 
 // load route
 app.use("/", require("./src/router/products"));
-app.use('/avatars',express.static(path.resolve(__dirname,"src/images/products")))
+// app.use('/avatars',express.static(path.resolve(__dirname,"src/images/products")))
 
 app.listen(PORT, () =>
   console.log(`server is running on http://localhost:${PORT}`)
