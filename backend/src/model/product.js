@@ -10,16 +10,6 @@ const productsSchema = new mongoose.Schema({
   description: { type: String, required: true },
   categoryID: { type: mongoose.Schema.Types.ObjectId},
   images: [{ type: String }]
-
-  // specifications: [
-  //   {
-  //     key: { type: String},
-  //     // key: { type: String, required: true },
-  //     value: { type: String},
-  //   },
-  // ],
-
-  // categoryID: { type: mongoose.Schema.Types.ObjectId, required: true },
 });
 
 const Products = mongoose.model("products", productsSchema);

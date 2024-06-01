@@ -1,10 +1,21 @@
 const express = require('express');
 const route = express.Router();
 const productsController = require('../controller/products');
+const multer = require('multer');
+const path = require('path');
+const { generateAvatarId } = require('../images/generateAvatarID');
+
+
+// save avatar into a folder [multer]
+const storage = multer.diskStorage({
+    destination : (req,file,cb) =>{ cb(null,"src/images/products") },
+    filename: (req,file,cb) =>{ cb(null,generateAvatarId()+ path.extname(file.originalname)) }
+})
+const upload = multer({storage : storage})
+//END save avatar into a folder
 
 route.post('/admin/product',productsController.add);
-// route.put('/contactlist/:id',contactList.update);
-// route.delete('/contactlist/:id',contactList.delete);
-// route.get('/contactlist/:page/:limit/:search',contactList.pagination);
+route.post('/admin/product/:id/avatar',upload.single('images') ,productsController.addImages);
+
 
 module.exports = route;

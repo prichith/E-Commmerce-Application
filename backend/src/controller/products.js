@@ -10,3 +10,9 @@ exports.add = async (req, res) => {
     console.error(error) || console.log("Product added failed");
   }
 };
+
+exports.addImages = async (req,res)=>{
+  console.log(req.file);
+  let result = await productsService.addImages(req.params.id,{ avatar: req.file.filename })
+  result ? res.json({message: 'avatar updated successfully'}) : res.json({message: 'avatar updated failed'}) 
+}

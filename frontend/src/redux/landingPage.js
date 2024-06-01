@@ -3,18 +3,19 @@ import axios from "axios";
 // import { notify } from "../App";
 
 const initialState = {
+  cartCount: 0,
 //   contactList: [],
 //   formOpen: false,
 
 };
 
-const contactListSlice = createSlice({
+const landingPageSlice = createSlice({
   name: "home",
   initialState,
   reducers: {
-    // setFormOpen: (state, action) => {
-    //   state.formOpen = action.payload;
-    // },
+    setCartCount: (state, action) => {
+      state.cartCount = action.payload;
+    },
     // setFormUpdate: (state, action) => {
     //   state.formUpdate = action.payload;
     // },
@@ -59,11 +60,12 @@ const contactListSlice = createSlice({
 // );
 
 
-export default contactListSlice.reducer;
+export default landingPageSlice.reducer;
 export const {
-  setFormOpen,
-  setFormUpdate,
-  setContactLimit,
-  setSearchText,
-  setContactsPerPage,
-} = contactListSlice.actions;
+  setCartCount
+  // setFormOpen,
+  // setFormUpdate,
+  // setContactLimit,
+  // setSearchText,
+  // setContactsPerPage,
+} = landingPageSlice.actions;

@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export default function AdminPage() {
   const { formOpen } = useSelector((state) => state.admin);
   const dispatch = useDispatch();
-  console.log(formOpen);
 
   function openForm(){ //open form
     dispatch(setFormOpen(true));

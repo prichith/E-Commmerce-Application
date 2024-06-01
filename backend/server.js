@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const bodyparser = require("body-parser");
 const connectDB = require("./src/connection/connection");
 const cors = require("cors");
+const path = require('path');
+
 
 // load env variables
 dotenv.config({ path: "config.env" });
@@ -20,6 +22,7 @@ app.use(bodyparser.json());
 
 // load route
 app.use("/", require("./src/router/products"));
+app.use('/avatars',express.static(path.resolve(__dirname,"src/images/products")))
 
 app.listen(PORT, () =>
   console.log(`server is running on http://localhost:${PORT}`)
