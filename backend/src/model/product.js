@@ -8,7 +8,9 @@ const productsSchema = new mongoose.Schema({
   weight: { type: Number, required: true },
   color: { type: String, required: true },
   description: { type: String, required: true },
-  categoryID: { type: mongoose.Schema.Types.ObjectId},
+  category: { type: String, required: true },
+
+  // categoryID: { type: mongoose.Schema.Types.ObjectId},
   images: [{ type: String }]
 });
 

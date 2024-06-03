@@ -1,11 +1,11 @@
-const Products = require('../model/product');
+const Category = require('../model/categories');
 
 exports.add = async (query) => {
     try {
-      const newProduct = new Products(query);
-      newProduct.save();
-  
-      return newProduct;
+      const newCategory = new Category(query);
+      newCategory.save();
+
+      return newCategory;
     } catch (error) {
       console.error(error);
     }
@@ -13,8 +13,8 @@ exports.add = async (query) => {
 
 exports.getAll = async () => {
     try {
-      const result = await Products.find();
-
+      const result = await Category.find();
+      console.log(result,'==result');
       return result;
     } catch (error) {
       console.error(error);
@@ -22,9 +22,9 @@ exports.getAll = async () => {
   };
 
 exports.addImages = async (id, avatarData) => {
-  let result = await Products.findByIdAndUpdate(
+  let result = await Category.findByIdAndUpdate(
     id,
-    { $push: { image: { $each: avatarData.avatars } } },
+    { image: avatarData.avatars },
     { new: true }
   );
 

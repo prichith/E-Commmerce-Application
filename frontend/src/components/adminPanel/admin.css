@@ -7,9 +7,25 @@
   }
   .adminCategories {
     background-color: #161643;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 30px;
     color: #fff;
     border-radius: 5px;
+  }
+  .categoryHeader{
+    display: flex;
+    flex-direction: column;
+  }
+  .categoryHeader button{
+    border-radius: 5px;
+    padding: 10px 25px;
+    border: 1px solid black;
+    font-weight: 600;
+    background-color: #FFF;
+    color: var(--primary-color);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .adminCategories label {
     margin-left: 10px;
@@ -64,3 +80,28 @@
     padding: 8px;
   }
   /* end table */
+
+  /* add castegory form */
+  .addCategory{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #969696;
+    padding: 5px 7px;
+    border-radius: 5px;
+  }
+  .addCategory input{
+    padding: 3px 5px;
+    max-width: 180px;
+    }
+  .addCategory button{
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 0px 5px;
+    width: 60px;
+  }
+  .catImageDiv{
+    display: flex;
+  }
+  /*end add castegory form */

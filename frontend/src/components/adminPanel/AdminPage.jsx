@@ -4,48 +4,81 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
 import { useEffect, useState } from "react";
 import { fetchProducts } from "../../redux/products";
+import { addCategory , fetchCategories} from "../../redux/categories";
 
 export default function AdminPage(props) {
-  const { formOpen } = useSelector((state) => state.admin);
   const { allProducts } = useSelector((state) => state.products);
-  // const [data, setData] = useState();
+  const { allCategories } = useSelector((state) => state.categories);
+  let setImages = props.updateImages;
+
+  const [categoryImage, setCategoryImage] = useState();
   const dispatch = useDispatch();
 
   function openForm() {
     props.updateData({
-      name: '',
-      brand: '',
+      name: "",
+      brand: "",
       quantity: "",
-      price: '',
-      category:'',
-      description: '',
-      weight: '',
-      color: ''
+      price: "",
+      category: "",
+      description: "",
+      weight: "",
+      color: "",
     });
+    setImages([]);
     dispatch(setFormOpen(true));
   }
 
-  function editFormOpen(data){
+  function editFormOpen(data) {
     props.updateData(data);
     dispatch(setFormOpen(true));
   }
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(fetchCategories()); //
   }, []);
+
+  function updateCatImg(event){
+    setCategoryImage(event.target.files[0])
+  }
+
+  function handleSubmit(event){
+    event.preventDefault();
+    let data = { name : event.target.name.value };
+    const formData = new FormData();
+      formData.append("image", categoryImage); 
+
+    try {
+      let result = dispatch(addCategory({ data, formData })); // post a product with data and images
+    } catch (error) {
+      console.error("There was an error submitting the product:", error);
+    }
+  }
 
   return (
     <div className="adminPage container">
       <div className="adminCategories">
+        <div className="categoryHeader heading">
+          <h3>Categories</h3>
+          <form className="addCategory" onSubmit={handleSubmit}>
+            <input type="text" placeholder="New Category Name" name="name" id="category"/>
+            <div className="catImageDiv">
+              <label htmlFor="catImage">Image: </label>
+              <input type="file" id="catImage" name="image" onChange={updateCatImg}/>
+            </div>
+            <button type="submit">Add</button>
+          </form>
+        </div>
+
         <form action="">
-          <h3 className="heading">Categories</h3>
-          <input type="radio" id="mobile" name="category" value="mobile" />
-          <label htmlFor="mobile">Mobile</label>
-          <br />
-          <input type="radio" id="laptop" name="category" value="laptop" />
-          <label htmlFor="laptop">Laptop</label>
-          <br />
-          <br />
+          {allCategories.map((category,index)=>(
+            <>
+            <input key={index} type="radio" id={category.name} name="category" value={category.name} />
+            <label htmlFor={category.name}>{category.name}</label>
+            <br />
+            </>
+          ))}
         </form>
       </div>
 
@@ -73,7 +106,10 @@ export default function AdminPage(props) {
                 <td>{product.quantity}</td>
                 <td>₹ {product.price}</td>
                 <td className="actions">
-                  <i className="fa-solid fa-pen-to-square" onClick= { ()=> editFormOpen(product) }></i>
+                  <i
+                    className="fa-solid fa-pen-to-square"
+                    onClick={() => editFormOpen(product)}
+                  ></i>
                   <i className="fa-solid fa-trash"></i>
                 </td>
               </tr>
