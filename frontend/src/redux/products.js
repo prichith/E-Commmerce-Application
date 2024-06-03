@@ -31,6 +31,7 @@ const productsSlice = createSlice({
 export const addProduct = createAsyncThunk(
   "products/addProduct",
   async ({ data, formData }) => {
+    console.log(data,'=data in redux');
     const response = await axios.post(
       "http://localhost:3002/admin/product",
       data

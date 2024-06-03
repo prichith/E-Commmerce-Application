@@ -25,11 +25,10 @@ export default function ProductForm(props) {
   function updateFormData(event) {
     const { name, value } = event.target;
     updateData((prevState) => ({
-    // setData((prevState) => ({
       ...prevState,
       [name]: value,
     }));
-
+    console.log({ name, value }); // Log the name and value
     console.log(data);
   }
 
@@ -97,9 +96,10 @@ export default function ProductForm(props) {
           id="productCategory"
           placeholder="Category"
           onChange={updateFormData}
+          value={data.category}
         >
           <option value="">Choose Category</option>
-          <option value="mobile">Mobile</option>
+          <option value="mobile" >Mobile</option>
           <option value="laptop">Laptop</option>
         </select>
         <input

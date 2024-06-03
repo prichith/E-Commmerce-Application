@@ -12,7 +12,16 @@ export default function AdminPage(props) {
   const dispatch = useDispatch();
 
   function openForm() {
-    props.updateData();
+    props.updateData({
+      name: '',
+      brand: '',
+      quantity: "",
+      price: '',
+      category:'',
+      description: '',
+      weight: '',
+      color: ''
+    });
     dispatch(setFormOpen(true));
   }
 

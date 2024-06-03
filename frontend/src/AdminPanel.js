@@ -6,7 +6,16 @@ import ProductForm from './components/adminPanel/ProductForm';
 import { useState } from 'react';
 
 export default function AdminPanel(){
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    name: '',
+    brand: '',
+    quantity: "",
+    price: '',
+    category:'',
+    description: '',
+    weight: '',
+    color: ''
+  });
   return (
     <>
     <Header />
