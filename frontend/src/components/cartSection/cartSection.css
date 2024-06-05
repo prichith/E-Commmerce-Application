@@ -83,6 +83,9 @@
     .cartDelete:hover {
         background-color: var(--primary-color);
     }
+    .cartDashboard{
+        min-height: 600px;
+    }
     /* end cartlist */
     /* cart summary */
     .cartSummary {

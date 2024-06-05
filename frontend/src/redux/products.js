@@ -4,6 +4,7 @@ import { notify } from "../index";
 
 const initialState = {
   allProducts : [],
+  groupProducts : [],
 };
 
 const productsSlice = createSlice({
@@ -22,11 +23,10 @@ const productsSlice = createSlice({
     .addCase(addProduct.fulfilled, (state,action) => {
       state.allProducts.unshift(action.payload);
     })
+    .addCase(fetchGroupProducts.fulfilled, (state,action) => {
+      state.groupProducts = action.payload ? action.payload : "";
+    })
 
-    // .addCase(fetchContacts.fulfilled, (state, action) => {
-    //   state.contactList = action.payload.data ? action.payload.data : "";
-    //   state.totalContact = action.payload.totalEmployee;
-    // })
     },
 });
 
@@ -52,11 +52,23 @@ export const addProduct = createAsyncThunk(
   }
 );
 
-export const fetchProducts = createAsyncThunk(
+export const fetchProducts = createAsyncThunk( //  temperory
   "products/fetchProducts",
   async () => {
     const response = await axios.get(
       `http://localhost:3002/admin/product`
+    );
+    const data = response.data || [];
+
+    return data;
+  }
+);
+
+export const fetchGroupProducts = createAsyncThunk( //  products w.r.t categories
+  "products/fetchGroupProducts",
+  async (category) => {
+    const response = await axios.get(
+      `http://localhost:3002/products/${category}`
     );
     const data = response.data || [];
 

@@ -18,5 +18,6 @@ route.post('/admin/product',productsController.add);
 route.post('/admin/product/:id/avatar', upload.array('images', 10),productsController.addImages);
 route.get('/admin/product',productsController.getAll);
 
+route.get('/products/:categoryName',productsController.productGroup); // find all products w.r.t categories
 
 module.exports = route;

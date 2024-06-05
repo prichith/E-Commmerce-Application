@@ -20,6 +20,17 @@ exports.getAll = async (req, res) => {
   }
 };
 
+exports.productGroup = async (req, res) => { //
+  try {
+    let query = {category: req.params.categoryName};
+    let result = await productsService.productGroup(query);
+    res.status(200).send(result);
+  } catch (error) {
+    res.status(500).send("Products Finding failed !");
+    console.error(error) || console.log("Products finding failed");
+  }
+};
+
 exports.addImages = async (req, res) => {
   // console.log(req.files,'=images in controller');
   

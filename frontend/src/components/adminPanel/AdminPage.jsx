@@ -35,7 +35,7 @@ export default function AdminPage(props) {
   }
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchProducts()); // temp - fetch all products
     dispatch(fetchCategories()); //
   }, []);
 

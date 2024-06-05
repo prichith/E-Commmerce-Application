@@ -17,7 +17,7 @@ export default function CartSection(){
   }
 
   return (
-    <div className="container">
+    <div className="container cartDashboard">
     <h2 className="heading">My Cart</h2>
     <div className="cartDiv">
 

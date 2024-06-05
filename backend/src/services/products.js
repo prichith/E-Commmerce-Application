@@ -21,6 +21,16 @@ exports.getAll = async () => {
     }
   };
 
+exports.productGroup = async (query) => { //
+    try {
+      const result = await Products.find(query);
+
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 exports.addImages = async (id, avatarData) => {
   // console.log(avatarData,'== image in service');
   let result = await Products.findByIdAndUpdate(
