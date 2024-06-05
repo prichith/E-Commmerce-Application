@@ -23,7 +23,3 @@ export default function fakeDataItems() {
   });
 }
 
-// ReactDOM.render(
-//   <GalleryDetail galleries={fakeDataItems()} thumbsPerView={3} />,
-//   document.getElementById("app")
-// );
