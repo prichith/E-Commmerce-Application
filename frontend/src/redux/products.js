@@ -18,7 +18,9 @@ const productsSlice = createSlice({
       builder
     .addCase(fetchProducts.fulfilled, (state,action) => {
       state.allProducts = action.payload ? action.payload : "";
-
+    })
+    .addCase(addProduct.fulfilled, (state,action) => {
+      state.allProducts.unshift(action.payload);
     })
 
     // .addCase(fetchContacts.fulfilled, (state, action) => {

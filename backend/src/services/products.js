@@ -22,9 +22,10 @@ exports.getAll = async () => {
   };
 
 exports.addImages = async (id, avatarData) => {
+  // console.log(avatarData,'== image in service');
   let result = await Products.findByIdAndUpdate(
     id,
-    { $push: { image: { $each: avatarData.avatars } } },
+    { $push: { images: { $each: avatarData.avatars } } },
     { new: true }
   );
 

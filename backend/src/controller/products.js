@@ -21,6 +21,8 @@ exports.getAll = async (req, res) => {
 };
 
 exports.addImages = async (req, res) => {
+  // console.log(req.files,'=images in controller');
+  
   let avatars = req.files.map(file => file.filename); // req.files will contain an array of files
   let result = await productsService.addImages(req.params.id, { avatars: avatars });
   result ? res.json({ message: 'avatars updated successfully' }) : res.json({ message: 'avatars update failed' });

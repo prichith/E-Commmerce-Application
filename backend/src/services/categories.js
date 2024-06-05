@@ -14,7 +14,7 @@ exports.add = async (query) => {
 exports.getAll = async () => {
     try {
       const result = await Category.find();
-      console.log(result,'==result');
+      // console.log(result,'==result');
       return result;
     } catch (error) {
       console.error(error);
