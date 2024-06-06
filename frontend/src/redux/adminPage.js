@@ -1,6 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-// import { notify } from "../App";
 
 const initialState = {
   formOpen: false,
@@ -26,9 +24,6 @@ const adminPageSlice = createSlice({
     //     state.contactList = action.payload.data ? action.payload.data : "";
     //     state.totalContact = action.payload.totalEmployee;
     //   })
-    //   .addCase(fetchContacts.rejected, (state, action) => {
-    //     console.log("rejected");
-    //   })
 
 //   },
 });
@@ -45,22 +40,8 @@ const adminPageSlice = createSlice({
 //   }
 // );
 
-// export const deleteContact = createAsyncThunk(
-//   "list/deleteContact",
-//   async (id) => {
-//     const response = await axios.delete(
-//       `http://localhost:3002/contactlist/${id}`
-//     );
-//     return response.data;
-//   }
-// );
-
-
 export default adminPageSlice.reducer;
 export const {
   setFormOpen,
-//   setFormUpdate,
-//   setContactLimit,
-//   setSearchText,
-//   setContactsPerPage,
+
 } = adminPageSlice.actions;

@@ -1,10 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-// import { notify } from "../App";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartCount: 0,
-
 };
 
 const landingPageSlice = createSlice({
@@ -14,20 +11,14 @@ const landingPageSlice = createSlice({
     setCartCount: (state, action) => {
       state.cartCount = action.payload;
     },
-
   },
-//   extraReducers: (builder) => {
-//     builder
-    //   .addCase(fetchContacts.pending, (state) => {
-    //     console.log("loading");
-    //   })
-//   },
+  //   extraReducers: (builder) => {
+  //     builder
+  //   .addCase(fetchContacts.pending, (state) => {
+  //     console.log("loading");
+  //   })
+  //   },
 });
 
-
-
 export default landingPageSlice.reducer;
-export const {
-  setCartCount,
-  // setFormOpen,
-} = landingPageSlice.actions;
+export const { setCartCount } = landingPageSlice.actions;

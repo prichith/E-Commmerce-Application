@@ -3,7 +3,7 @@ import axios from "axios";
 import { notify } from "../index";
 
 const initialState = {
-  allCategories : [], //for Add-category section
+  allCategories: [], //for Add-category section
   categoryArray: [], //to show all products w.r.t categories
 };
 
@@ -15,21 +15,16 @@ const productsSlice = createSlice({
     //   state.cartCount = action.payload;
     // },
   },
-    extraReducers: (builder) => {
-      builder
-    .addCase(fetchCategories.fulfilled, (state,action) => {
+  extraReducers: (builder) => {
+    builder.addCase(fetchCategories.fulfilled, (state, action) => {
       state.allCategories = action.payload ? action.payload : "";
-
-    })
-
-    },
+    });
+  },
 });
 
 export const addCategory = createAsyncThunk(
   "categories/addCategory",
   async ({ data, formData }) => {
-    console.log(data,'=data in redux');
-    console.log(formData,'=formData in redux');
     const response = await axios.post(
       "http://localhost:3002/admin/category",
       data
@@ -43,7 +38,7 @@ export const addCategory = createAsyncThunk(
         headers: { "Content-Type": "multipart/form-data" },
       }
     );
-    if(id) notify("Category Added Successfully");
+    if (id) notify("Category Added Successfully");
     return response.data;
   }
 );
@@ -51,9 +46,7 @@ export const addCategory = createAsyncThunk(
 export const fetchCategories = createAsyncThunk(
   "categories/fetchCategories",
   async () => {
-    const response = await axios.get(
-      `http://localhost:3002/admin/category`
-    );
+    const response = await axios.get(`http://localhost:3002/admin/category`);
     const data = response.data || [];
 
     return data;
@@ -63,5 +56,4 @@ export const fetchCategories = createAsyncThunk(
 export default productsSlice.reducer;
 export const {
   //   setCartCount,
-  // setFormOpen,
 } = productsSlice.actions;

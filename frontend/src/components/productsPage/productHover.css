@@ -18,7 +18,8 @@
 }
 .pdp-slider__thumb img {
   max-width: 100%;
-  height: auto;
+  /* height: auto; */
+  max-height: 600px;
 }
 .pdp-slider__thumb--active {
   border: 2px solid #000;
@@ -30,8 +31,12 @@
   overflow: hidden;
   cursor: zoom-in;
 }
+.zoom{
+  cursor: pointer;
+}
 .pdp-slider__galleries img {
   height: auto;
+  width: 100%;
 }
 .zoom__loading {
   display: none;

@@ -29,6 +29,7 @@ export default function Categories() {
         <div className="categoryGroup">
           {allCategories.map((category, index) => (
             <div
+              key={index}
               className="category"
               onClick={() => categoryProducts(category.name)}
             >

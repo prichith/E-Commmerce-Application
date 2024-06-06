@@ -3,7 +3,8 @@ import "./admin.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
 import { useEffect, useState } from "react";
-import { fetchProducts } from "../../redux/products";
+import { fetchGroupProducts } from "../../redux/products";
+// import { fetchProducts } from "../../redux/products";
 import { addCategory , fetchCategories} from "../../redux/categories";
 
 export default function AdminPage(props) {
@@ -35,7 +36,7 @@ export default function AdminPage(props) {
   }
 
   useEffect(() => {
-    dispatch(fetchProducts()); // temp - fetch all products
+    // dispatch(fetchProducts()); // temp - fetch all products
     dispatch(fetchCategories()); //
   }, []);
 
@@ -56,6 +57,11 @@ export default function AdminPage(props) {
     }
   }
 
+  function fetchProducts(category){
+    console.log(category);
+    dispatch(fetchGroupProducts(category));
+  }
+
   return (
     <div className="adminPage container">
       <div className="adminCategories">
@@ -72,9 +78,11 @@ export default function AdminPage(props) {
         </div>
 
         <form action="">
+        <h3 className="catHead">Select a category :</h3>
+
           {allCategories.map((category,index)=>(
             <>
-            <input key={index} type="radio" id={category.name} name="category" value={category.name} />
+            <input key={index} type="radio" id={category.name} name="category" value={category.name} onClick={()=> fetchProducts(category.name)}/>
             <label htmlFor={category.name}>{category.name}</label>
             <br />
             </>

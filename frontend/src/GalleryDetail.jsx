@@ -4,9 +4,13 @@ import Slider from "react-slick";
 import PinchZoomPan from "react-responsive-pinch-zoom-pan";
 import "slick-carousel/slick/slick.css";
 import "./components/productsPage/productHover.css";
+import { useLocation } from "react-router-dom";
 
-const GalleryDetail = ({ galleries, thumbsPerView }) => {
+const GalleryDetail = ({ galleries, data, thumbsPerView }) => {
   const [isMobile, setIsMobile] = useState(false);
+
+  const location = useLocation();
+  const { product } = location.state || {};
 
   useEffect(() => {
     setIsMobile(window.innerWidth <= 500);
@@ -27,22 +31,11 @@ const GalleryDetail = ({ galleries, thumbsPerView }) => {
           )}
         </div>
         <div className="productPurchase">
-          <h4>Redmi 10 Pro</h4>
-          <p>Xiomi</p>
-          <span className="price">$15,000</span>
+          <h4>{product.name}</h4>
+          <p>{product.brand}</p>
+          <span className="price">₹ {product.price}</span>
           <p className="specificationHead">Description :</p>
-          <p>
-            Keep your brain engaged with gaming, work or entertainment
-            throughout and relish visual treats with the Redmi Note 10 Pro Max
-            smartphone. It comes with a 16.9 cm (6.67) FHD+ AMOLED display with
-            a fast refresh rate of 120 Hz, so that you can take pleasure in
-            seamless gaming and realistic graphics. Also, this phone is equipped
-            with an efficient Qualcomm 732G Snapdragon processor that offers
-            stellar performance while gaming, streaming videos and watching
-            movies. Moreover, thanks to the powerful 5020 mAh battery, this
-            phone keeps you engaged to your favourite activities without any
-            interruptions.
-          </p>
+          <p>{product.description}</p>
           <p className="specificationHead">Specifications :</p>
           <div className="specifications">
             <div className="key">
@@ -50,8 +43,8 @@ const GalleryDetail = ({ galleries, thumbsPerView }) => {
               <p>color</p>
             </div>
             <div className="value">
-              <p>: Note 10 Pro Max</p>
-              <p>: Dark Night</p>
+              <p>: {product.name}</p>
+              <p>: {product.color}</p>
             </div>
           </div>
           <button className="productAddToCart">Add To Cart</button>
@@ -97,8 +90,8 @@ const GalleryDesktop = ({ galleries, thumbsPerView }) => {
         )}
       </div>
       <ZoomPreview
-        image={galleries[currentItem].product.url}
-        zoom={galleries[currentItem].zoom.url}
+        image={galleries[currentItem]?.product?.url}
+        zoom={galleries[currentItem]?.zoom?.url}
       />
     </>
   );
