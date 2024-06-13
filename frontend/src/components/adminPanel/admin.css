@@ -108,3 +108,18 @@
     margin-top: 30px;
   }
   /*end add castegory form */
+  /* Drawer */
+  .drawerCatImg{
+    width: 25px;
+    height: 25px;
+  }
+  .drawerFlex{
+    display: flex;
+    gap: 10px;
+  }
+  .drawerhead{
+    text-align: center;
+    padding: 15px 0px 5px 0px;
+    font-weight: 600;
+  }
+  /* end Drawer */

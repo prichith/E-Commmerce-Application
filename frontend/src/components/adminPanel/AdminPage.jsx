@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { fetchGroupProducts } from "../../redux/products";
 // import { fetchProducts } from "../../redux/products";
 import { addCategory , fetchCategories} from "../../redux/categories";
+import TemporaryDrawer from "./DrawerList";
 
 export default function AdminPage(props) {
   const { allProducts } = useSelector((state) => state.products);
@@ -93,6 +94,7 @@ export default function AdminPage(props) {
       <div className="productDashboard">
         <div className="addProductBtn">
           <button onClick={openForm}>Add Product</button>
+          <TemporaryDrawer />
         </div>
         <table>
           <thead>

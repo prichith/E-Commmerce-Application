@@ -5,6 +5,11 @@ import Footer from './components/footer/Footer';
 import ProductForm from './components/adminPanel/ProductForm';
 import { useState } from 'react';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 export default function AdminPanel(){
   const [images, setImages] = useState([]); 
   const [data, setData] = useState({
