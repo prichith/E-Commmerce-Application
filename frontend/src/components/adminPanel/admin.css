@@ -1,6 +1,6 @@
 .adminPage {
-    display: grid;
-    grid-template-columns: 2fr 7fr;
+    /* display: grid;
+    grid-template-columns: 2fr 7fr; */
     gap: 10px;
     margin-top: 15px;
     min-height: 600px;
@@ -32,7 +32,8 @@
   }
   .productDashboard {
     background-color: #fff;
-  }
+    padding: 10px 10px;
+    }
   .heading {
     margin-bottom: 15px;
   }
@@ -79,6 +80,21 @@
     text-align: left;
     padding: 8px;
   }
+  thead tr{
+    background-color: var(--primary-color);
+    color: #FFF;
+    border-radius: 5px;
+  }
+  tbody tr:hover{
+    background-color: #d3cfcf;
+  }
+  /* temp styling for form */
+  table form{ 
+    background-color: pink;
+    margin-top: 26px;
+  }
+    /* end temp styling for form */
+
   /* end table */
 
   /* add castegory form */
@@ -121,5 +137,8 @@
     text-align: center;
     padding: 15px 0px 5px 0px;
     font-weight: 600;
+  }
+  .hoverEffect:hover{
+    background-color: var(--primary-color) !important;
   }
   /* end Drawer */

@@ -6,6 +6,7 @@ import ProductsPage from './components/productsPage/ProductsPage';
 import AdminPanel from './AdminPanel';
 import CategoryPage from './CategoryPage';
 
+
 export default function App() {
   return (
     <Routes>

@@ -7,6 +7,7 @@ import { fetchGroupProducts } from "../../redux/products";
 // import { fetchProducts } from "../../redux/products";
 import { addCategory , fetchCategories} from "../../redux/categories";
 import TemporaryDrawer from "./DrawerList";
+// import BasicExample from "./DemoForm";
 
 export default function AdminPage(props) {
   const { allProducts } = useSelector((state) => state.products);
@@ -65,7 +66,7 @@ export default function AdminPage(props) {
 
   return (
     <div className="adminPage container">
-      <div className="adminCategories">
+      {/* <div className="adminCategories">
         <div className="categoryHeader heading">
           <h3>Categories</h3>
           <form className="addCategory" onSubmit={handleSubmit}>
@@ -89,7 +90,7 @@ export default function AdminPage(props) {
             </>
           ))}
         </form>
-      </div>
+      </div> */}
 
       <div className="productDashboard">
         <div className="addProductBtn">
@@ -126,6 +127,7 @@ export default function AdminPage(props) {
             ))}
           </tbody>
         </table>
+        {/* <BasicExample /> */}
       </div>
     </div>
   );
