@@ -1,20 +1,15 @@
-import React from "react";
-import "./admin.css";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
-import { useEffect, useState } from "react";
-import { fetchGroupProducts } from "../../redux/products";
-// import { fetchProducts } from "../../redux/products";
-import { addCategory , fetchCategories} from "../../redux/categories";
+import { fetchCategories } from "../../redux/categories";
 import TemporaryDrawer from "./DrawerList";
-// import BasicExample from "./DemoForm";
+import "./admin.css";
 
 export default function AdminPage(props) {
   const { allProducts } = useSelector((state) => state.products);
   const { allCategories } = useSelector((state) => state.categories);
   let setImages = props.updateImages;
 
-  const [categoryImage, setCategoryImage] = useState();
   const dispatch = useDispatch();
 
   function openForm() {
@@ -38,49 +33,11 @@ export default function AdminPage(props) {
   }
 
   useEffect(() => {
-    // dispatch(fetchProducts()); // temp - fetch all products
-    dispatch(fetchCategories()); //
+    dispatch(fetchCategories()); // fetching all categories and add it in redux
   }, [allCategories]);
-
-  function updateCatImg(event){
-    setCategoryImage(event.target.files[0])
-  }
-
-  function handleSubmit(event){
-    event.preventDefault();
-    let data = { name : event.target.name.value };
-    const formData = new FormData();
-      formData.append("image", categoryImage); 
-
-    try {
-      let result = dispatch(addCategory({ data, formData })); // post a category with data and images
-    } catch (error) {
-      console.error("There was an error submitting the product:", error);
-    }
-  }
-
-  function fetchProducts(category){
-    console.log(category);
-    dispatch(fetchGroupProducts(category));
-  }
 
   return (
     <div className="adminPage container">
-      {/* <div className="adminCategories">
-        <div className="categoryHeader heading">
-          <h3>Categories</h3>
-          <form className="addCategory" onSubmit={handleSubmit}>
-            <input type="text" placeholder="New Category Name" name="name" id="category"/>
-            <div className="catImageDiv">
-              <label htmlFor="catImage">Image: </label>
-              <input type="file" id="catImage" name="image" onChange={updateCatImg}/>
-            </div>
-            <button type="submit">Add</button>
-          </form>
-        </div>
-
-      </div> */}
-
       <div className="productDashboard">
         <div className="addProductBtn">
           <button onClick={openForm}>Add Product</button>
@@ -116,7 +73,6 @@ export default function AdminPage(props) {
             ))}
           </tbody>
         </table>
-        {/* <BasicExample /> */}
       </div>
     </div>
   );

@@ -1,23 +1,14 @@
-import React from "react";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { setNewCategoryForm } from "../../redux/adminPage";
-import { useDispatch } from "react-redux";
 import { addCategory } from "../../redux/categories";
 
 const AddCategoryForm = () => {
   const [image, setImage] = useState();
   const [imageFile, setImageFile] = useState(null);
-  const { newCategoryForm } = useSelector((state) => state.admin); // category form
+  const { newCategoryForm } = useSelector((state) => state.admin); // category form open/close
   const dispatch = useDispatch();
-  // let file = "";
 
-  // const updateImages = (event) => {
-  //   setImageFile(event.target.files[0]);
-  //   if (file) {
-  //     setImage(URL.createObjectURL(file));
-  //   }
-  // };
   const updateImages = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -26,17 +17,15 @@ const AddCategoryForm = () => {
     }
   };
 
-  function closeForm(){
+  function closeForm() {
     dispatch(setNewCategoryForm(false));
   }
 
-  function handleSubmit(event){
+  function handleSubmit(event) {
     event.preventDefault();
-    let data = { name : event.target.name.value };
+    let data = { name: event.target.name.value };
     const formData = new FormData();
-      // formData.append("image", file); 
-      formData.append("image", imageFile);
-
+    formData.append("image", imageFile);
 
     try {
       let result = dispatch(addCategory({ data, formData })); // post a category with data and image
@@ -47,11 +36,14 @@ const AddCategoryForm = () => {
   }
 
   return (
-    <div className={`${newCategoryForm ? "formContainer addCatForm flex" : "formContainer addCatForm"}`} >
-      <form
-        encType="multipart/form-data"
-        onSubmit={handleSubmit}
-      >
+    <div
+      className={`${
+        newCategoryForm
+          ? "formContainer addCatForm flex"
+          : "formContainer addCatForm"
+      }`}
+    >
+      <form encType="multipart/form-data" onSubmit={handleSubmit}>
         <div className="formClose">
           <h3>Add Category</h3>
           <span>
@@ -81,15 +73,10 @@ const AddCategoryForm = () => {
           type="text"
           placeholder="Category Name"
           name="name"
-            // onChange={updateFormData}
-          //   value={data.brand}
           required
         />
 
-        <button id="addContact">
-          {/* <button id="addContact" onClick={handleSubmit}> */}
-          Add Category
-        </button>
+        <button id="addContact">Add Category</button>
       </form>
     </div>
   );

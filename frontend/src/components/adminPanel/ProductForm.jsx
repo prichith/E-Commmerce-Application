@@ -1,10 +1,8 @@
 import React from "react";
-import axios from "axios";
-import "./productForm.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
-import { useState, useEffect } from "react";
 import { addProduct } from "../../redux/products";
+import "./productForm.css";
 
 export default function ProductForm(props) {
   const { formOpen } = useSelector((state) => state.admin);
@@ -29,16 +27,10 @@ export default function ProductForm(props) {
       ...prevState,
       [name]: value,
     }));
-
-    //for debugging
-    console.log({ name, value }); // Log the name and value
-    console.log(data);
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(data, "==data");
-
     const formData = new FormData();
     for (let i = 0; i < images.length; i++) {
       formData.append("images", images[i]);
@@ -73,7 +65,6 @@ export default function ProductForm(props) {
             placeholder="Images"
             name="images"
             onChange={updateImages}
-            // required
             multiple
           />
         </div>
@@ -154,7 +145,6 @@ export default function ProductForm(props) {
           value={data.color}
           required
         />
-
         <button id="addContact" onClick={handleSubmit}>
           Add Product
         </button>
@@ -162,4 +152,3 @@ export default function ProductForm(props) {
     </div>
   );
 }
-

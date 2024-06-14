@@ -2,15 +2,15 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGroupProducts } from "../../redux/products";
 import { setNewCategoryForm } from "../../redux/adminPage";
-import "./admin.css";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import "./admin.css";
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
