@@ -19,6 +19,7 @@ const productsSlice = createSlice({
     builder.addCase(fetchCategories.fulfilled, (state, action) => {
       state.allCategories = action.payload ? action.payload : "";
     });
+
   },
 });
 
@@ -30,6 +31,8 @@ export const addCategory = createAsyncThunk(
       data
     );
     let id = response.data._id; //take id for upload images
+    console.log(formData,'==formdata in controller')
+
 
     const uploadImage = await axios.post(
       `http://localhost:3002/admin/category/${id}/avatar`,

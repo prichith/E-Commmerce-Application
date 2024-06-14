@@ -1,10 +1,10 @@
 .productForm{
   flex-direction: column;
-  /* gap: 0px; */
+  gap: 10px;
   border: 1px solid white;
   padding: 25px 20px 40px 20px;
   border-radius: 10px;
-  background-color: #35383a;
+  background-color: var(--form-color);
   max-width: 600px;
   width: 100%;
   left: 322px;
@@ -73,8 +73,68 @@
   }
   .formClose{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    align-items: center;
   }
   .productImg{
     color: #FFF;
   }
+  .formHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+
+  /*      *************  ADD CATEGORY FORM    ***************      */
+.addCatForm{
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid white;
+  padding: 25px 20px 40px 20px;
+  border-radius: 10px;
+  background-color: var(--form-color);
+  max-width: 600px;
+  width: 100%;
+  left: 322px;
+  top: 85px;
+  position: absolute;
+  z-index: 2;
+  overflow-y: scroll;
+  max-height: 500px;
+  color: #FFF;
+  display: none;
+}
+.addCatForm::-webkit-scrollbar {
+  display: none;
+}
+.addCatForm input{
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  border: 1px solid grey;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.addCatForm button{
+  background-color: #0d6efd;
+  color: #FFF;
+  padding: 5px 25px;
+  font-weight: 600;
+  border: 1px solid #0d6efd;
+}
+.catImgDivPreview{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  background-color: #FFF;
+}
+.catImgDivPreview img{
+  width: 100%;
+  height: 100%;
+}
+.flex{
+  display: flex !important;
+}

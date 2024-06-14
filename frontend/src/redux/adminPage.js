@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  formOpen: false,
-
+  formOpen: false, //add product
+  newCategoryForm : false,
 };
 
 const adminPageSlice = createSlice({
@@ -12,9 +12,10 @@ const adminPageSlice = createSlice({
     setFormOpen: (state, action) => {
       state.formOpen = action.payload;
     },
-    // setFormUpdate: (state, action) => {
-    //   state.formUpdate = action.payload;
-    // },
+    setNewCategoryForm: (state, action) => {
+      state.newCategoryForm = action.payload;
+    },
+
 
   },
 //   extraReducers: (builder) => {
@@ -43,5 +44,5 @@ const adminPageSlice = createSlice({
 export default adminPageSlice.reducer;
 export const {
   setFormOpen,
-
+  setNewCategoryForm,
 } = adminPageSlice.actions;

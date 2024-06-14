@@ -8,6 +8,7 @@
   --primary-color: #121242;
   --secondary-color: #232f3e;
   --ternary-color: #ccd9e9;
+  --form-color: #35383a;
 }
 body {
   background-color: var(--ternary-color);

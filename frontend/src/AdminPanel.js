@@ -4,6 +4,7 @@ import AdminPage from './components/adminPanel/AdminPage';
 import Footer from './components/footer/Footer';
 import ProductForm from './components/adminPanel/ProductForm';
 import { useState } from 'react';
+import AddCategoryForm from './components/adminPanel/AddCategoryForm';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -29,6 +30,7 @@ export default function AdminPanel(){
     <Header />
     <AdminPage data={data} updateData={setData} updateImages={setImages} />
     <ProductForm data={data} updateData={setData} images={images} updateImages={setImages} />
+    <AddCategoryForm />
     <Footer />
     </>
 )

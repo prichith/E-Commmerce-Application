@@ -81,7 +81,8 @@
     padding: 8px;
   }
   thead tr{
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
+    background-color: var(--secondary-color);
     color: #FFF;
     border-radius: 5px;
   }
@@ -140,5 +141,16 @@
   }
   .hoverEffect:hover{
     background-color: var(--primary-color) !important;
+  }
+  .addCategoryButton{
+    background-color: #0d6efd;
+    color: #FFF;
+    padding: 8px 20px;
+    font-weight: 600;
+    border: 1px solid #0d6efd;
+  }
+  .catAddButton{
+    display: flex;
+    justify-content: center;
   }
   /* end Drawer */

@@ -40,7 +40,7 @@ export default function AdminPage(props) {
   useEffect(() => {
     // dispatch(fetchProducts()); // temp - fetch all products
     dispatch(fetchCategories()); //
-  }, []);
+  }, [allCategories]);
 
   function updateCatImg(event){
     setCategoryImage(event.target.files[0])
@@ -53,7 +53,7 @@ export default function AdminPage(props) {
       formData.append("image", categoryImage); 
 
     try {
-      let result = dispatch(addCategory({ data, formData })); // post a product with data and images
+      let result = dispatch(addCategory({ data, formData })); // post a category with data and images
     } catch (error) {
       console.error("There was an error submitting the product:", error);
     }
@@ -79,17 +79,6 @@ export default function AdminPage(props) {
           </form>
         </div>
 
-        <form action="">
-        <h3 className="catHead">Select a category :</h3>
-
-          {allCategories.map((category,index)=>(
-            <>
-            <input key={index} type="radio" id={category.name} name="category" value={category.name} onClick={()=> fetchProducts(category.name)}/>
-            <label htmlFor={category.name}>{category.name}</label>
-            <br />
-            </>
-          ))}
-        </form>
       </div> */}
 
       <div className="productDashboard">
