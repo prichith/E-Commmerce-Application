@@ -53,8 +53,8 @@ export default function ProductForm(props) {
       >
         <div className="formClose">
           <h3>Add Product</h3>
-          <span>
-            <i onClick={closeForm} className="fa-solid fa-xmark"></i>
+          <span onClick={closeForm}>
+            <i className="fa-solid fa-xmark"></i>
           </span>
         </div>
         <div className="productImg">

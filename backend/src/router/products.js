@@ -17,6 +17,7 @@ const upload = multer({storage : storage})
 route.post('/admin/product',productsController.add);
 route.post('/admin/product/:id/avatar', upload.array('images', 10),productsController.addImages);
 route.get('/admin/product',productsController.getAll);
+route.delete('/admin/product/:id',productsController.delete);
 
 route.get('/products/:categoryName',productsController.productGroup); // find all products w.r.t categories
 

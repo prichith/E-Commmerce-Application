@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
   formOpen: false, //add product
   newCategoryForm : false,
+  deletePopupForm : false,
 };
 
 const adminPageSlice = createSlice({
@@ -14,6 +15,9 @@ const adminPageSlice = createSlice({
     },
     setNewCategoryForm: (state, action) => {
       state.newCategoryForm = action.payload;
+    },
+    setDeletePopupForm: (state, action) => {
+      state.deletePopupForm = action.payload;
     },
 
 
@@ -45,4 +49,5 @@ export default adminPageSlice.reducer;
 export const {
   setFormOpen,
   setNewCategoryForm,
+  setDeletePopupForm,
 } = adminPageSlice.actions;

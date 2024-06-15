@@ -31,6 +31,9 @@
 .productDashboard {
   background-color: #fff;
   padding: 10px 10px;
+  min-height: 400px;
+  border: 1px solid grey;
+  border-radius: 5px;
 }
 .heading {
   margin-bottom: 15px;
@@ -57,6 +60,7 @@
   display: flex;
   justify-content: flex-end;
   padding: 10px;
+  gap: 5px;
 }
 .addProductBtn button {
   border-radius: 10px;
@@ -124,7 +128,7 @@ tbody tr:hover {
   gap: 10px;
 }
 .drawerhead {
-  text-align: center;
+  /* text-align: center; */
   padding: 15px 0px 5px 0px;
   font-weight: 600;
 }

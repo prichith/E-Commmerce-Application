@@ -10,6 +10,17 @@ exports.add = async (req, res) => {
   }
 };
 
+exports.delete = async (req, res) => {
+  let ID = req.params.id;
+  try {
+    let result = await productsService.delete(ID);
+    res.status(200).send(result);
+  } catch (error) {
+    res.status(500).send("Product deleted failed !");
+    console.error(error) || console.log("Product deleted failed");
+  }
+};
+
 exports.getAll = async (req, res) => {
   try {
     let result = await productsService.getAll();
@@ -31,9 +42,7 @@ exports.productGroup = async (req, res) => { //
   }
 };
 
-exports.addImages = async (req, res) => {
-  // console.log(req.files,'=images in controller');
-  
+exports.addImages = async (req, res) => {  
   let avatars = req.files.map(file => file.filename); // req.files will contain an array of files
   let result = await productsService.addImages(req.params.id, { avatars: avatars });
   result ? res.json({ message: 'avatars updated successfully' }) : res.json({ message: 'avatars update failed' });

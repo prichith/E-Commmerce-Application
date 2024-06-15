@@ -11,6 +11,16 @@ exports.add = async (query) => {
     }
   };
 
+exports.delete = async (ID) => {
+    try {
+      const result = await Products.findByIdAndDelete(ID);
+  
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 exports.getAll = async () => {
     try {
       const result = await Products.find();
@@ -32,7 +42,6 @@ exports.productGroup = async (query) => { //
   };
 
 exports.addImages = async (id, avatarData) => {
-  // console.log(avatarData,'== image in service');
   let result = await Products.findByIdAndUpdate(
     id,
     { $push: { images: { $each: avatarData.avatars } } },

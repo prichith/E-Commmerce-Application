@@ -1,11 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
 import { fetchCategories } from "../../redux/categories";
 import TemporaryDrawer from "./DrawerList";
+import { deleteProduct } from "../../redux/products";
+import { setDeletePopupForm } from "../../redux/adminPage";
 import "./admin.css";
+import DeleteProductPopUp from "./DeleteProductPopUp";
 
 export default function AdminPage(props) {
+  const [ID, setID] = useState(null);
   const { allProducts } = useSelector((state) => state.products);
   const { allCategories } = useSelector((state) => state.categories);
   let setImages = props.updateImages;
@@ -27,6 +31,11 @@ export default function AdminPage(props) {
     dispatch(setFormOpen(true));
   }
 
+  function OpenDeletePopupForm(ID) {
+    dispatch(setDeletePopupForm(true));
+    setID(ID);
+  }
+
   function editFormOpen(data) {
     props.updateData(data);
     dispatch(setFormOpen(true));
@@ -38,11 +47,11 @@ export default function AdminPage(props) {
 
   return (
     <div className="adminPage container">
+      <div className="addProductBtn">
+        <button onClick={openForm}>Add Product</button>
+        <TemporaryDrawer />
+      </div>
       <div className="productDashboard">
-        <div className="addProductBtn">
-          <button onClick={openForm}>Add Product</button>
-          <TemporaryDrawer />
-        </div>
         <table>
           <thead>
             <tr>
@@ -67,13 +76,18 @@ export default function AdminPage(props) {
                     className="fa-solid fa-pen-to-square"
                     onClick={() => editFormOpen(product)}
                   ></i>
-                  <i className="fa-solid fa-trash"></i>
+                  <i
+                    className="fa-solid fa-trash"
+                    onClick={() => OpenDeletePopupForm(product._id)}
+                    // onClick={() => dispatch(deleteProduct(product._id))}
+                  ></i>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <DeleteProductPopUp id={ID} />
     </div>
   );
 }
