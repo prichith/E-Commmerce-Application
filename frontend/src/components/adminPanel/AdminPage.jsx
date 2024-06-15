@@ -3,10 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFormOpen } from "../../redux/adminPage";
 import { fetchCategories } from "../../redux/categories";
 import TemporaryDrawer from "./DrawerList";
-import { deleteProduct } from "../../redux/products";
 import { setDeletePopupForm } from "../../redux/adminPage";
-import "./admin.css";
 import DeleteProductPopUp from "./DeleteProductPopUp";
+import "./admin.css";
 
 export default function AdminPage(props) {
   const [ID, setID] = useState(null);
@@ -79,7 +78,6 @@ export default function AdminPage(props) {
                   <i
                     className="fa-solid fa-trash"
                     onClick={() => OpenDeletePopupForm(product._id)}
-                    // onClick={() => dispatch(deleteProduct(product._id))}
                   ></i>
                 </td>
               </tr>
