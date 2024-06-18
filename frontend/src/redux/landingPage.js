@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cartCount: 0,
+  loginVerified: false,
+  loginFormOpen: false,
+  signupFormOpen: false,
 };
 
 const landingPageSlice = createSlice({
@@ -10,6 +13,15 @@ const landingPageSlice = createSlice({
   reducers: {
     setCartCount: (state, action) => {
       state.cartCount = action.payload;
+    },
+    setLogin: (state, action) => {
+      state.login = action.payload;
+    },
+    setLoginFormOpen: (state, action) => {
+      state.loginFormOpen = action.payload;
+    },
+    setSignupFormOpen: (state, action) => {
+      state.loginFormOpen = action.payload;
     },
   },
   //   extraReducers: (builder) => {
@@ -21,4 +33,5 @@ const landingPageSlice = createSlice({
 });
 
 export default landingPageSlice.reducer;
-export const { setCartCount } = landingPageSlice.actions;
+export const { setCartCount, setLogin, setLoginFormOpen, setSignupFormOpen } =
+  landingPageSlice.actions;
